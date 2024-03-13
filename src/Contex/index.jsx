@@ -32,11 +32,9 @@ export const ShoppingCardProvider = ({ children }) => {
 
     //Search Products by title
     const [searchByTitle, setSearchByTitle] = useState(null)
-    console.log("buscador: ", searchByTitle)
     
     //Search Products by category
     const [searchByCategory, setSearchByCategory] = useState(null)
-    console.log(" category: ",searchByCategory)
     
     useEffect(()=> {
         fetch('https://api.escuelajs.co/api/v1/products')
@@ -60,8 +58,6 @@ export const ShoppingCardProvider = ({ children }) => {
         if (searchByCategory) setFilteredCategory(filteredItemsByCategory(items, searchByCategory))
     }, [items, searchByCategory])
 
-    console.log('filteredItems', filteredItems)
-    console.log('aca', filteredCategory)
     return (
         <ShoppingCardContext.Provider value={{
             count,
